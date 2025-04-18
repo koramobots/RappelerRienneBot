@@ -3,21 +3,6 @@ from discord.ext import commands
 import os
 import random
 
-from flask import Flask  
-from threading import Thread
-
-app = Flask('')
-
-@app.route('/')
-def home():
-    return "serveur de caca est commencer"
-
-def run():
-    app.run(host='0.0.0.0', port=8080)
-
-def keep_alive():
-    t = Thread(target=run)
-    t.start()
 
 image_links = [
     "https://i.imgur.com/03StPAn.jpeg",
@@ -95,6 +80,5 @@ if token is None:
         "Erreur : le token du bot n'est pas défini dans les variables d'environnement."
     )
 else:
-    keep_alive()
-    print(" mechate bot est en ligne !") 
+    
     bot.run(token)
